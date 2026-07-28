@@ -10,8 +10,55 @@ import {
   Users,
   BriefcaseBusiness,
 } from "lucide-react";
+import { siteConfig } from "@/data/site";
 
 export default function Contact() {
+  const [submissionState, setSubmissionState] = useState<{
+    type: "error" | "success";
+    message: string;
+  } | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setSubmissionState(null);
+    setIsSubmitting(true);
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          email: formData.get("email"),
+          service: formData.get("service"),
+          message: formData.get("message"),
+        }),
+      });
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to send your message.");
+      }
+
+      form.reset();
+      setSubmissionState({ type: "success", message: result.message });
+    } catch (error) {
+      setSubmissionState({
+        type: "error",
+        message:
+          error instanceof Error
+            ? error.message
+            : "Something went wrong. Please try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
   return (
     <section
       id="contact"
@@ -31,14 +78,14 @@ export default function Contact() {
           </p>
 
           <h2 className="font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-            Let's create something
+            Let&apos;s create something
             <br />
             <span className="text-brand-gold">worth remembering.</span>
           </h2>
 
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-brand-muted sm:text-lg">
             Have a project in mind, or just want to discuss an idea? Send a
-            message and let's explore what we can create together.
+            message and let&apos;s explore what we can create together.
           </p>
         </motion.div>
 
@@ -54,7 +101,7 @@ export default function Contact() {
             <div className="space-y-6">
               {/* Email */}
               <a
-                href="jbcrea8tive@gmail.com"
+                href={`mailto:${siteConfig.email}`}
                 className="group flex items-center gap-5 rounded-2xl border border-white/10 bg-[#050D1B] p-5 transition-all duration-300 hover:border-brand-gold/30"
               >
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-gold/10">
@@ -67,7 +114,7 @@ export default function Contact() {
                   </p>
 
                   <p className="mt-1 text-sm font-medium text-white sm:text-base">
-                    jbcrea8tive@gmail.com
+                    {siteConfig.email}
                   </p>
                 </div>
 
@@ -163,7 +210,7 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="rounded-3xl border border-white/10 bg-[#050D1B] p-6 sm:p-8"
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={handleSubmit}
           >
             <div className="grid gap-6 sm:grid-cols-2">
               {/* Name */}
@@ -177,8 +224,10 @@ export default function Contact() {
 
                 <input
                   id="name"
+                  name="name"
                   type="text"
                   placeholder="John Doe"
+                  required
                   className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none transition focus:border-brand-gold/50"
                 />
               </div>
@@ -194,8 +243,10 @@ export default function Contact() {
 
                 <input
                   id="email"
+                  name="email"
                   type="email"
                   placeholder="john@example.com"
+                  required
                   className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none transition focus:border-brand-gold/50"
                 />
               </div>
@@ -212,8 +263,10 @@ export default function Contact() {
 
               <select
                 id="project"
+                name="service"
                 className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none transition focus:border-brand-gold/50"
                 defaultValue=""
+                required
               >
                 <option value="" disabled className="bg-[#050D1B]">
                   Select a service
@@ -252,8 +305,10 @@ export default function Contact() {
 
               <textarea
                 id="message"
+                name="message"
                 rows={5}
                 placeholder="Tell me a little about your project, goals, timeline, and anything else I should know..."
+                required
                 className="w-full resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none transition focus:border-brand-gold/50"
               />
             </div>
@@ -261,15 +316,29 @@ export default function Contact() {
             {/* Submit */}
             <button
               type="submit"
+              disabled={isSubmitting}
               className="group mt-6 inline-flex w-full items-center justify-center gap-3 rounded-xl bg-brand-gold px-6 py-4 text-sm font-semibold text-black transition-all duration-300 hover:bg-white"
             >
-              Send Project Inquiry
+              {isSubmitting ? "Sending..." : "Send Project Inquiry"}
 
               <ArrowUpRight
                 size={18}
                 className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"
               />
             </button>
+
+            {submissionState && (
+              <p
+                className={`mt-4 text-sm ${
+                  submissionState.type === "success"
+                    ? "text-green-400"
+                    : "text-red-400"
+                }`}
+                role="status"
+              >
+                {submissionState.message}
+              </p>
+            )}
           </motion.form>
         </div>
       </div>

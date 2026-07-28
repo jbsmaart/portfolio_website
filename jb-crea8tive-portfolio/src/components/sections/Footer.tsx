@@ -7,6 +7,7 @@ import {
   BriefcaseBusiness,
   Mail,
 } from "lucide-react";
+import { siteConfig } from "@/data/site";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -85,11 +86,11 @@ export default function Footer() {
 
             <div className="mt-5 flex flex-col gap-4">
               <a
-                href="mailto:hello@jbcrea8tive.com"
+                href={`mailto:${siteConfig.email}`}
                 className="flex items-center gap-3 text-sm text-brand-muted transition-colors hover:text-white"
               >
                 <Mail size={16} />
-                hello@jbcrea8tive.com
+                {siteConfig.email}
               </a>
 
               <div className="flex gap-3 pt-2">

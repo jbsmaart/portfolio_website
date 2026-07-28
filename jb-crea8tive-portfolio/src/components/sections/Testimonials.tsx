@@ -2,27 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Quote, Star } from "lucide-react";
-
-const testimonials = [
-  {
-    name: "Munirah Salihu",
-    role: "Business Owner",
-    company: "Neerah's Pastry",
-    text: "JB crea8tive understood exactly what I needed and turned the idea into a design that exceeded my expectations. The attention to detail was excellent.",
-  },
-  {
-    name: "QS Hassan Ibrahim Makera",
-    role: "Entrepreneur/Politician",
-    company: "Sahhal Clothings",
-    text: "Professional, creative, and easy to work with. The final designs gave my brand a much more polished and professional appearance.",
-  },
-  {
-    name: "Yusuf",
-    role: "Founder",
-    company: "Zamani Timepiece",
-    text: "From the initial concept to the final delivery, the entire process was smooth. I would definitely recommend JB crea8tive to anyone looking for quality design.",
-  },
-];
+import { siteConfig } from "@/data/site";
 
 export default function Testimonials() {
   return (
@@ -41,7 +21,7 @@ export default function Testimonials() {
           </p>
 
           <h2 className="font-display text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-            Don't just take our{" "}
+            Don&apos;t just take our{" "}
             <span className="text-brand-gold">word for it.</span>
           </h2>
 
@@ -53,7 +33,7 @@ export default function Testimonials() {
 
         {/* Testimonials */}
         <div className="mt-16 grid gap-6 lg:grid-cols-3">
-          {testimonials.map((testimonial, index) => (
+          {siteConfig.testimonials.map((testimonial, index) => (
             <motion.article
               key={index}
               initial={{ opacity: 0, y: 30 }}
@@ -88,7 +68,7 @@ export default function Testimonials() {
 
               {/* Testimonial */}
               <p className="mt-8 text-base leading-relaxed text-white/70">
-                "{testimonial.text}"
+                &ldquo;{testimonial.text}&rdquo;
               </p>
 
               {/* Client */}

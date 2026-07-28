@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { siteConfig } from "@/data/site";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -18,7 +19,7 @@ export async function POST(request: Request) {
 
     const { error } = await resend.emails.send({
       from: "JB crea8tive <onboarding@resend.dev>",
-      to: ["hello@jbcrea8tive.com"],
+      to: [siteConfig.email],
       replyTo: email,
       subject: `New Project Inquiry from ${name}`,
       html: `
