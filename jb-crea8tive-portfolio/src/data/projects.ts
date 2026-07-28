@@ -1,9 +1,10 @@
 export type ProjectCategory =
-  | "Branding"
+  | "Brand Identity"
+  | "Logo Design"
   | "Social Media"
-  | "Print"
-  | "Logo"
-  | "Packaging";
+  | "Print Design"
+  | "Video Editing"
+  | "UI/UX";
 
 export type Project = {
   id: number;
@@ -11,58 +12,87 @@ export type Project = {
   category: ProjectCategory;
   description: string;
   image: string;
-  featured?: boolean;
+  tags: string[];
+  featured: boolean;
+  year: string;
 };
 
 export const projects: Project[] = [
   {
     id: 1,
     title: "Queen Feenah Delicacies",
-    category: "Branding",
+    category: "Brand Identity",
     description:
-      "A refined visual identity designed to communicate elegance, warmth, and quality.",
-    image: "/images/projects/project-1.jpg",
+      "Complete visual identity including logo design, color palette and brand assets.",
+
+    image: "/images/projects/queen-feenah.jpg",
+
+    tags: [
+      "Branding",
+      "Logo",
+      "Identity"
+    ],
+
     featured: true,
+
+    year: "2026",
   },
+
   {
     id: 2,
-    title: "Creative Campaign",
-    category: "Social Media",
+    title: "Political Campaign",
+    category: "Print Design",
     description:
-      "A bold social media campaign designed to capture attention and increase engagement.",
-    image: "/images/projects/project-2.jpg",
+      "Campaign posters, banners and social media creatives.",
+
+    image: "/images/projects/politics.jpg",
+
+    tags: [
+      "Poster",
+      "Campaign",
+      "Print"
+    ],
+
     featured: true,
+
+    year: "2026",
   },
+
   {
     id: 3,
-    title: "Corporate Identity",
-    category: "Logo",
-    description:
-      "A modern logo concept created to establish a distinctive and memorable brand presence.",
-    image: "/images/projects/project-3.jpg",
-  },
-  {
-    id: 4,
-    title: "Event Campaign",
-    category: "Print",
-    description:
-      "A visually engaging promotional campaign created for print and digital applications.",
-    image: "/images/projects/project-4.jpg",
-  },
-  {
-    id: 5,
-    title: "Product Packaging",
-    category: "Packaging",
-    description:
-      "A clean and premium packaging concept designed to stand out on the shelf.",
-    image: "/images/projects/project-5.jpg",
-  },
-  {
-    id: 6,
-    title: "Social Campaign",
+    title: "Corporate Social Media",
     category: "Social Media",
     description:
-      "A cohesive series of social media graphics built around a consistent visual language.",
-    image: "/images/projects/project-6.jpg",
+      "Monthly social media campaign for a growing business.",
+
+    image: "/images/projects/social.jpg",
+
+    tags: [
+      "Instagram",
+      "Facebook"
+    ],
+
+    featured: false,
+
+    year: "2026",
   },
+
+  {
+    id: 4,
+    title: "Restaurant Flyer",
+    category: "Print Design",
+    description:
+      "Modern flyer promoting weekly offers and menu items.",
+
+    image: "/images/projects/flyer.jpg",
+
+    tags: [
+      "Flyer",
+      "Restaurant"
+    ],
+
+    featured: false,
+
+    year: "2026",
+  }
 ];

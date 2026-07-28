@@ -3,12 +3,10 @@
 import { motion } from "framer-motion";
 import {
   ArrowUpRight,
-  Brush,
-  Clapperboard,
-  Layout,
+  Palette,
+  PenTool,
+  Share2,
   Printer,
-  Shapes,
-  Sparkles,
 } from "lucide-react";
 
 const services = [
@@ -16,43 +14,29 @@ const services = [
     number: "01",
     title: "Brand Identity",
     description:
-      "Build a distinctive visual identity that communicates your values and makes your brand recognisable.",
-    icon: Shapes,
+      "Build a distinctive visual identity that gives your brand a clear and memorable presence.",
+    icon: Palette,
   },
   {
     number: "02",
     title: "Graphic Design",
     description:
-      "Creative and purposeful visuals designed to capture attention and communicate your message clearly.",
-    icon: Brush,
+      "Create compelling visual designs for campaigns, promotions, events, and everyday communication.",
+    icon: PenTool,
   },
   {
     number: "03",
     title: "Social Media Design",
     description:
-      "Scroll-stopping content that gives your social media presence a consistent and professional visual identity.",
-    icon: Sparkles,
+      "Design engaging social media visuals that help your brand communicate consistently and stand out online.",
+    icon: Share2,
   },
   {
     number: "04",
     title: "Print Design",
     description:
-      "Professional designs for flyers, posters, business cards, banners, brochures, and other print materials.",
+      "Create professional print-ready materials including flyers, posters, banners, business cards, and more.",
     icon: Printer,
-  },
-  {
-    number: "05",
-    title: "UI Design",
-    description:
-      "Clean and intuitive digital interfaces designed to create engaging and user-friendly experiences.",
-    icon: Layout,
-  },
-  {
-    number: "06",
-    title: "Video Editing",
-    description:
-      "Dynamic video content that combines storytelling, motion, and visual design to bring ideas to life.",
-    icon: Clapperboard,
   },
 ];
 
@@ -60,42 +44,37 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="relative overflow-hidden bg-brand-navy/30 py-24 sm:py-32"
+      className="relative border-t border-white/10 py-24 sm:py-32"
     >
       <div className="mx-auto max-w-7xl px-6">
-        {/* Section Header */}
-        <div className="grid gap-8 lg:grid-cols-2 lg:items-end">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6 }}
-          >
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end"
+        >
+          <div>
             <p className="mb-5 text-sm font-medium uppercase tracking-[0.25em] text-brand-gold">
-              What We Do
+              What I Do
             </p>
 
             <h2 className="font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-              Creative services built around{" "}
-              <span className="text-brand-gold">your vision.</span>
+              Design that
+              <br />
+              <span className="text-brand-gold">moves brands forward.</span>
             </h2>
-          </motion.div>
+          </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="max-w-xl text-base leading-relaxed text-brand-muted lg:ml-auto lg:text-lg"
-          >
-            Whether you're launching a new brand or taking an existing one to
-            the next level, we create visual solutions that are strategic,
-            memorable, and built to make an impact.
-          </motion.p>
-        </div>
+          <p className="max-w-md text-base leading-relaxed text-brand-muted">
+            From strategy to execution, I create purposeful visual solutions
+            designed to make your brand clearer, stronger, and more memorable.
+          </p>
+        </motion.div>
 
         {/* Services Grid */}
-        <div className="mt-16 grid gap-px overflow-hidden rounded-3xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid gap-px overflow-hidden rounded-3xl border border-white/10 bg-white/10 md:grid-cols-2">
           {services.map((service, index) => {
             const Icon = service.icon;
 
@@ -104,38 +83,39 @@ export default function Services() {
                 key={service.number}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.1 }}
+                viewport={{ once: true }}
                 transition={{
-                  duration: 0.5,
-                  delay: index * 0.08,
+                  duration: 0.6,
+                  delay: index * 0.1,
                 }}
-                className="group relative bg-[#050D1B] p-8 transition-colors duration-300 hover:bg-[#0A1930] sm:p-10"
+                className="group relative bg-[#020617] p-8 transition-colors duration-500 hover:bg-[#050D1B] sm:p-10"
               >
-                {/* Top Row */}
-                <div className="flex items-start justify-between">
-                  <span className="text-sm text-white/30">
-                    {service.number}
-                  </span>
+                {/* Number */}
+                <span className="absolute right-8 top-8 text-sm text-white/20">
+                  {service.number}
+                </span>
 
-                  <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 transition-colors duration-300 group-hover:border-brand-gold/40 group-hover:bg-brand-gold group-hover:text-black">
-                    <Icon size={20} />
-                  </div>
+                {/* Icon */}
+                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 transition-colors duration-300 group-hover:border-brand-gold/40 group-hover:bg-brand-gold/10">
+                  <Icon
+                    size={20}
+                    className="text-brand-gold"
+                  />
                 </div>
 
-                {/* Content */}
-                <div className="mt-16">
-                  <h3 className="font-display text-2xl font-semibold">
-                    {service.title}
-                  </h3>
+                <h3 className="mt-8 font-display text-2xl font-semibold text-white">
+                  {service.title}
+                </h3>
 
-                  <p className="mt-4 text-sm leading-relaxed text-brand-muted">
-                    {service.description}
-                  </p>
-                </div>
+                <p className="mt-4 max-w-md text-sm leading-relaxed text-brand-muted sm:text-base">
+                  {service.description}
+                </p>
 
-                {/* Arrow */}
-                <div className="mt-8 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 transition-all duration-300 group-hover:translate-x-1 group-hover:border-brand-gold group-hover:text-brand-gold">
-                  <ArrowUpRight size={18} />
+                <div className="mt-8 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 transition-all duration-300 group-hover:border-brand-gold/40 group-hover:bg-brand-gold group-hover:text-black">
+                  <ArrowUpRight
+                    size={17}
+                    className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  />
                 </div>
               </motion.div>
             );
