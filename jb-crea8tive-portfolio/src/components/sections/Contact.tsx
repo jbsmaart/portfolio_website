@@ -67,7 +67,7 @@ export default function Contact() {
                   </p>
 
                   <p className="mt-1 text-sm font-medium text-white sm:text-base">
-                    hello@jbcrea8tive.com
+                    jbcrea8tive@gmail.com
                   </p>
                 </div>
 
@@ -79,7 +79,7 @@ export default function Contact() {
 
               {/* WhatsApp */}
               <a
-                href="https://wa.me/2340000000000"
+                href="https://wa.me/2348130275554"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-5 rounded-2xl border border-white/10 bg-[#050D1B] p-5 transition-all duration-300 hover:border-brand-gold/30"

@@ -25,7 +25,7 @@ export const projects: Project[] = [
     description:
       "Complete visual identity including logo design, color palette and brand assets.",
 
-    image: "/images/projects/queen-feenah.jpg",
+    image: "/image/projects/project-5.png",
 
     tags: [
       "Branding",
@@ -45,7 +45,7 @@ export const projects: Project[] = [
     description:
       "Campaign posters, banners and social media creatives.",
 
-    image: "/images/projects/politics.jpg",
+    image: "/image/projects/YOUTH EMPOWERMENT.jpg",
 
     tags: [
       "Poster",
@@ -65,7 +65,7 @@ export const projects: Project[] = [
     description:
       "Monthly social media campaign for a growing business.",
 
-    image: "/images/projects/social.jpg",
+    image: "/image/projects/Leemarhs pastry.jpg",
 
     tags: [
       "Instagram",
@@ -84,7 +84,7 @@ export const projects: Project[] = [
     description:
       "Modern flyer promoting weekly offers and menu items.",
 
-    image: "/images/projects/flyer.jpg",
+    image: "/image/projects/project-6.jpeg",
 
     tags: [
       "Flyer",

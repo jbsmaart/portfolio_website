@@ -14,11 +14,11 @@ export const siteConfig = {
   // =========================
   // Contact Information
   // =========================
-  email: "hello@jbcrea8tive.com",
+  email: "jbcrea8tive@gmail.com",
 
-  phone: "+2340000000000",
+  phone: "+2348130275554",
 
-  whatsapp: "https://wa.me/2340000000000",
+  whatsapp: "https://wa.me/2348130275554",
 
   location: "Kaduna, Nigeria",
 
@@ -28,9 +28,9 @@ export const siteConfig = {
   // Social Media
   // =========================
   social: {
-    instagram: "",
+    instagram: "jb_crea8tive",
 
-    facebook: "",
+    facebook: "jb_crea8tive",
 
     linkedin: "",
 
@@ -40,7 +40,7 @@ export const siteConfig = {
 
     dribbble: "",
 
-    github: "",
+    github: "jbsmaart",
   },
 
   // =========================
@@ -79,16 +79,17 @@ export const siteConfig = {
     "Print Design",
     "Video Editing",
     "Large Format Printing",
+    "Website Development"
   ],
 
   // =========================
   // SEO
   // =========================
   seo: {
-    title: "JB crea8tive | Graphic Designer & Brand Identity Studio",
+    title: "JB crea8tive | Web Developer, Graphic Designer & Brand Identity Studio",
 
     description:
-      "Professional graphic design, branding, social media design, printing and visual identity services.",
+      "Professional Web Development, graphic design, branding, social media design, printing and visual identity services.",
 
     keywords: [
       "Graphic Designer",
