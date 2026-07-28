@@ -5,21 +5,21 @@ import { Quote, Star } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Client Name",
+    name: "Munirah Salihu",
     role: "Business Owner",
-    company: "Company Name",
+    company: "Neerah's Pastry",
     text: "JB crea8tive understood exactly what I needed and turned the idea into a design that exceeded my expectations. The attention to detail was excellent.",
   },
   {
-    name: "Client Name",
-    role: "Entrepreneur",
-    company: "Brand Name",
+    name: "QS Hassan Ibrahim Makera",
+    role: "Entrepreneur/Politician",
+    company: "Sahhal Clothings",
     text: "Professional, creative, and easy to work with. The final designs gave my brand a much more polished and professional appearance.",
   },
   {
-    name: "Client Name",
+    name: "Yusuf",
     role: "Founder",
-    company: "Business Name",
+    company: "Zamani Timepiece",
     text: "From the initial concept to the final delivery, the entire process was smooth. I would definitely recommend JB crea8tive to anyone looking for quality design.",
   },
 ];
