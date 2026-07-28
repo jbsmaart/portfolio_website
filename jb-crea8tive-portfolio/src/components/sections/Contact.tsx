@@ -54,7 +54,7 @@ export default function Contact() {
             <div className="space-y-6">
               {/* Email */}
               <a
-                href="mailto:hello@jbcrea8tive.com"
+                href="jbcrea8tive@gmail.com"
                 className="group flex items-center gap-5 rounded-2xl border border-white/10 bg-[#050D1B] p-5 transition-all duration-300 hover:border-brand-gold/30"
               >
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-gold/10">
