@@ -32,7 +32,7 @@ export const siteConfig = {
 
     facebook: "jb_crea8tive",
 
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/jibril-yakubu-b59864425/",
 
     x: "",
 
@@ -40,7 +40,7 @@ export const siteConfig = {
 
     dribbble: "",
 
-    github: "jbsmaart",
+    github: "https://github.com/jbsmaart",
   },
 
   // =========================
